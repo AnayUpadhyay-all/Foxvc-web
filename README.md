@@ -34,5 +34,5 @@ curl -sSL https://raw.githubusercontent.com/AnayUpadhyay-all/FoxVC/main/install.
 
 ## 📄 License
 
-Created by **Anay Upadhyay**. Licensed under the [MIT License](LICENSE).  
+Created by **Anay Upadhyay** (Nexus Systems). Released under the [MIT License](LICENSE).  
 Core Repository: [https://github.com/AnayUpadhyay-all/FoxVC](https://github.com/AnayUpadhyay-all/FoxVC)
