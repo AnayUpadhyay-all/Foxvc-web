@@ -1,0 +1,25 @@
+{
+  "name": "foxvc-web",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Ultra-Premium Official Website, Interactive Web Playground & Marketing Showcase for FoxVC Programming Language",
+  "author": "Anay Upadhyay <anay@nexussystems.dev>",
+  "license": "MIT",
+  "homepage": "https://github.com/AnayUpadhyay-all/Foxvc-web",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "foxvc",
+    "programming-language",
+    "virtual-machine",
+    "c89",
+    "sqlite",
+    "compiler",
+    "raylib",
+    "fweb",
+    "fskin",
+    "flogic"
+  ]
+}

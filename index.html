@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoxVC — The Zero-Overlap Programming Language & Native Runtime</title>
+  
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="FoxVC — The Zero-Overlap Programming Language & Native Runtime" />
+  <meta name="description" content="FoxVC is an independent, high-performance programming language and C bytecode VM with an exact 25-keyword lexicon, embedded SQLite persistence, and native Web Architecture (fweb • fskin • flogic)." />
+  <meta name="keywords" content="FoxVC, programming language, C bytecode VM, SQLite, web development, compiler, raylib, zero overlap, Anay Upadhyay" />
+  <meta name="author" content="Anay Upadhyay" />
+  <meta name="theme-color" content="#FF7A00" />
+  
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://github.com/AnayUpadhyay-all/FoxVC" />
+  <meta property="og:title" content="FoxVC — Zero-Overlap Programming Language & Native Runtime" />
+  <meta property="og:description" content="25 keywords. Zero competitor overlap. Strict determinism. 14 KB standalone C bytecode VM and native SQLite database persistence." />
+  <meta property="og:image" content="/assets/foxvc.png" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://github.com/AnayUpadhyay-all/FoxVC" />
+  <meta property="twitter:title" content="FoxVC — Zero-Overlap Programming Language" />
+  <meta property="twitter:description" content="25 deterministic keywords. Embedded SQLite persistence. Raylib 2D hardware graphics. Zero dependencies." />
+  <meta property="twitter:image" content="/assets/foxvc.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/foxvc.svg" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Dynamic Ambient Particle Canvas -->
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-grid-overlay"></div>
+
+  <div class="layout-wrapper">
+    <!-- Floating Blur Navigation -->
+    <nav class="navbar">
+      <a href="#" class="nav-brand">
+        <div class="nav-logo-icon">🦊</div>
+        <div class="nav-brand-title">Fox<span>VC</span></div>
+        <span class="version-pill">v2.0.0</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#playground">Playground</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#ads">Why FoxVC</a></li>
+        <li><a href="#benchmarks">Benchmarks</a></li>
+        <li><a href="#comparison">Comparison</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-ghost-nav">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>Star on GitHub</span>
+        </a>
+        <a href="#playground" class="btn-cta-nav">Try Live</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="container">
+        <a href="https://github.com/AnayUpadhyay-all/FoxVC/releases/tag/v2.0.0" target="_blank" rel="noopener" class="announcement-banner">
+          <span class="pulse-dot"></span>
+          <span>FoxVC v2.0 Released: Native Tail-Call Optimization & SQLite Persistence</span>
+          <span style="opacity: 0.7;">→</span>
+        </a>
+
+        <h1 class="hero-title">
+          The <span class="gradient-text">Zero-Overlap</span> Programming Language & Native Runtime.
+        </h1>
+
+        <p class="hero-subtitle">
+          An exact 25-keyword lexicon. Zero hidden syntax traps. Tiered chained memory arena, embedded relational persistence, hardware 2D Raylib graphics, and decoupled Web Architecture (fweb &bull; fskin &bull; flogic).
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-hero-primary">
+            <span>🚀 Explore GitHub Repository</span>
+          </a>
+          <a href="#playground" class="btn-hero-secondary">
+            <span>⚡ Interactive Browser Playground</span>
+          </a>
+        </div>
+
+        <!-- Terminal Install Bar -->
+        <div class="install-bar-card">
+          <div class="install-command">
+            <span class="install-prompt">$</span>
+            <span id="installCmdText">curl -fsSL https://raw.githubusercontent.com/AnayUpadhyay-all/FoxVC/main/install.sh | bash</span>
+          </div>
+          <button class="btn-copy" data-copy="curl -fsSL https://raw.githubusercontent.com/AnayUpadhyay-all/FoxVC/main/install.sh | bash">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Live Interactive Playground -->
+    <section class="playground-section" id="playground">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Zero Installation Required</span>
+          <h2 class="section-title">Test Drive FoxVC Directly in Your Browser</h2>
+          <p class="section-desc">Experience FoxVC's deterministic 25-keyword syntax, embedded SQLite database shelf, and sub-millisecond execution.</p>
+        </div>
+
+        <div class="editor-window">
+          <!-- Editor Window Chrome -->
+          <div class="editor-header">
+            <div class="window-dots">
+              <div class="dot dot-red"></div>
+              <div class="dot dot-yellow"></div>
+              <div class="dot dot-green"></div>
+            </div>
+
+            <div class="preset-tabs">
+              <button class="preset-btn active" data-preset="fibonacci">main.fox (TCO)</button>
+              <button class="preset-btn" data-preset="database">database.fox (SQLite)</button>
+              <button class="preset-btn" data-preset="web">people.fweb (Web Model)</button>
+              <button class="preset-btn" data-preset="graphics">game.fox (Raylib 2D)</button>
+              <button class="preset-btn" data-preset="ai">ai_agent.fox (LLM Agent)</button>
+            </div>
+          </div>
+
+          <!-- Editor Body -->
+          <div class="editor-body">
+            <div class="code-pane">
+              <textarea id="codeEditor" class="code-editor-textarea" spellcheck="false"></textarea>
+            </div>
+
+            <div class="terminal-pane">
+              <div class="terminal-top-bar">
+                <span class="terminal-title">FoxVM Native Standalone Execution</span>
+                <span style="font-size: 11px; color: #10B981; font-weight: 600;">● Engine Ready</span>
+              </div>
+              <div id="terminalOutput" class="terminal-output"></div>
+            </div>
+          </div>
+
+          <!-- Editor Footer -->
+          <div class="editor-footer">
+            <div class="engine-selector">
+              <span>Execution Engine:</span>
+              <strong style="color: #FF7A00;">FoxCVM Native C (Standalone 14 KB ELF)</strong>
+              <span style="opacity: 0.5;">|</span>
+              <span style="color: #9CA3AF;">Memory Arena: 8MB Standby</span>
+            </div>
+
+            <button id="btnRun" class="btn-run">
+              <span>▶ Run FoxVC</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Viral Ad Deck Section (Designed for Marketing & Social Media) -->
+    <section class="ad-deck-section" id="ads">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Marketing & Developer Showcase</span>
+          <h2 class="section-title">Built for Engineers Who Value Clarity & Speed</h2>
+          <p class="section-desc">Shareable feature cards highlighting why FoxVC is the future of deterministic embeddable computing.</p>
+        </div>
+
+        <div class="ad-cards-grid">
+          <!-- Ad Card 1 -->
+          <div class="ad-card">
+            <div>
+              <div class="ad-badge">Lexicon Purity</div>
+              <h3 class="ad-punchline">25 Exact Keywords. Zero Syntax Ambiguity.</h3>
+              <p class="ad-desc">
+                No bloated language bloat. Zero competitor overlap. Strict boolean determinism with <code>aye</code>, <code>nay</code>, and <code>blank</code>. What you write executes with absolute predictability.
+              </p>
+            </div>
+            <div class="ad-share-actions">
+              <a href="https://twitter.com/intent/tweet?text=Discover%20FoxVC%20%E2%80%94%20the%20zero-overlap%20programming%20language%20with%20an%20exact%2025-keyword%20lexicon%20and%20sub-millisecond%20C%20VM!%20Check%20it%20out:%20https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-share-x">
+                <span>Post on X</span>
+              </a>
+              <button class="btn-copy" data-copy="FoxVC — The Zero-Overlap Programming Language: https://github.com/AnayUpadhyay-all/FoxVC">Copy Card</button>
+            </div>
+          </div>
+
+          <!-- Ad Card 2 -->
+          <div class="ad-card">
+            <div>
+              <div class="ad-badge">Native Persistence</div>
+              <h3 class="ad-punchline">Relational SQLite Out of the Box. No ORMs.</h3>
+              <p class="ad-desc">
+                Built-in SQLite relational shelf: <code>dbOpen</code>, <code>dbExecute</code>, and <code>dbQuery</code> directly in FoxVC. Zero extra packages, zero configuration, instant ACID persistence.
+              </p>
+            </div>
+            <div class="ad-share-actions">
+              <a href="https://twitter.com/intent/tweet?text=FoxVC%20ships%20with%20native%20embedded%20SQLite%20persistence%20right%20in%20the%20standard%20shelf.%20Zero%20ORMs%20needed!%20https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-share-x">
+                <span>Post on X</span>
+              </a>
+              <button class="btn-copy" data-copy="FoxVC Native SQLite Persistence: https://github.com/AnayUpadhyay-all/FoxVC">Copy Card</button>
+            </div>
+          </div>
+
+          <!-- Ad Card 3 -->
+          <div class="ad-card">
+            <div>
+              <div class="ad-badge">Web Architecture</div>
+              <h3 class="ad-punchline">The Web Triumvirate: fweb &bull; fskin &bull; flogic</h3>
+              <p class="ad-desc">
+                Decoupled web architecture reimagined. Structure defined in <code>.fweb</code>, visual appearance in <code>.fskin</code>, and reactive asynchronous behavior in <code>.flogic</code>. Zero boilerplate.
+              </p>
+            </div>
+            <div class="ad-share-actions">
+              <a href="https://twitter.com/intent/tweet?text=Decoupled%20Web%20Architecture%20with%20FoxVC:%20Structure%20(.fweb),%20Skin%20(.fskin),%20Logic%20(.flogic).%20https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-share-x">
+                <span>Post on X</span>
+              </a>
+              <button class="btn-copy" data-copy="FoxVC Decoupled Web Model: https://github.com/AnayUpadhyay-all/FoxVC">Copy Card</button>
+            </div>
+          </div>
+
+          <!-- Ad Card 4 -->
+          <div class="ad-card">
+            <div>
+              <div class="ad-badge">Pure C Engine</div>
+              <h3 class="ad-punchline">14 KB Standalone Binary. Sub-Millisecond Speed.</h3>
+              <p class="ad-desc">
+                Written in clean C89/C99. One-cycle bump allocator arena, standby pre-warmed memory, and instantaneous cold startup. Links only libc and libm.
+              </p>
+            </div>
+            <div class="ad-share-actions">
+              <a href="https://twitter.com/intent/tweet?text=A%2014%20KB%20standalone%20bytecode%20VM%20with%20zero%20dependencies.%20Meet%20FoxVC:%20https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-share-x">
+                <span>Post on X</span>
+              </a>
+              <button class="btn-copy" data-copy="FoxVC 14 KB Standalone VM: https://github.com/AnayUpadhyay-all/FoxVC">Copy Card</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Grid -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Engineered from First Principles</span>
+          <h2 class="section-title">Built Without Compromise</h2>
+          <p class="section-desc">Every subsystem in FoxVC is crafted for speed, developer ergonomics, and verifiable safety.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🔒</div>
+            <h3>Exact 25-Keyword Lexicon</h3>
+            <p>Every statement is governed by an immutable 25-keyword vocabulary. No competing synonym aliases, no ambiguous grammar branches, and zero language bloat.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">⚡</div>
+            <h3>Tiered Chained Memory Arena</h3>
+            <p>1-cycle pointer bump allocator backed by a pre-warmed 8MB standby arena. Zero cost until touched, dynamic chaining up to 64MB, and protection against memory exhaustion.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🗄️</div>
+            <h3>Native Embedded SQLite</h3>
+            <p>Zero-configuration embedded relational persistence built directly into the standard runtime shelf. Execute parameterized queries, ACID transactions, and sandbox-confined storage.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🎮</div>
+            <h3>Raylib 2D Hardware Graphics</h3>
+            <p>Hardware-accelerated windowing, sprite rendering, physics primitives, geometry drawing, and audio dispatch powered directly by native Raylib 5.0 bindings.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🧩</div>
+            <h3>Hybrid Fuse Module System</h3>
+            <p>Safe namespace isolation where internal module definitions remain private by default. Modules explicitly publish public APIs using top-level <code>emit pack</code>.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🛡️</div>
+            <h3>Sandboxed Security & DevOps</h3>
+            <p>Confinement controls with canonical symlink-aware filesystem limits, loopback/private subnet network isolation, and in-memory environment shielding.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Performance Benchmarks -->
+    <section class="benchmark-section" id="benchmarks">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Performance Verification</span>
+          <h2 class="section-title">Sub-Millisecond Cold Execution</h2>
+          <p class="section-desc">Engineered to eliminate runtime overhead. Standalone native bytecode dispatch benchmarked against traditional runtimes.</p>
+        </div>
+
+        <div class="benchmark-card">
+          <!-- Metric 1 -->
+          <div class="metric-row">
+            <div class="metric-label-row">
+              <span>Recursive Tail-Call Recursion (10,000 Depth) — Lower is Better</span>
+              <strong style="color: #FF7A00;">0.18 ms (FoxVC Native C VM)</strong>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill bar-foxvc" data-width="8%" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="metric-row">
+            <div class="metric-label-row">
+              <span>C89 / GCC -O2 Native Binary</span>
+              <span style="color: #9CA3AF;">0.14 ms</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill bar-c" data-width="6%" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="metric-row">
+            <div class="metric-label-row">
+              <span>Node.js v20 (V8 JIT Warmup)</span>
+              <span style="color: #9CA3AF;">22.4 ms</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill bar-node" data-width="48%" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="metric-row">
+            <div class="metric-label-row">
+              <span>Standard CPython 3.12 Interpreter</span>
+              <span style="color: #9CA3AF;">48.6 ms</span>
+            </div>
+            <div class="metric-bar-bg">
+              <div class="metric-bar-fill bar-py" data-width="92%" style="width: 0%;"></div>
+            </div>
+          </div>
+
+          <div style="margin-top: 28px; padding-top: 18px; border-top: 1px dashed var(--border-subtle); display: flex; justify-content: space-between; font-size: 13px; color: var(--text-subtle);">
+            <span>* Tested on Linux x86_64, Core i7, 10,000 iterations averaged across 50 runs.</span>
+            <span style="color: var(--accent-green); font-weight: 600;">✓ 127 / 127 Automated Verification Tests Passing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Matrix -->
+    <section class="matrix-section" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">Architecture Comparison</span>
+          <h2 class="section-title">How FoxVC Stacks Up</h2>
+          <p class="section-desc">Comparing architectural focus and determinism across modern programming environments.</p>
+        </div>
+
+        <div class="matrix-table-wrapper">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Capability / Architectural Trait</th>
+                <th class="highlight-col">🦊 FoxVC 2.0</th>
+                <th>Python 3</th>
+                <th>Rust</th>
+                <th>Go</th>
+                <th>Node.js</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Exact Keyword Lexicon</strong></td>
+                <td class="highlight-col"><span class="check-pill">25 Keywords</span></td>
+                <td>35 Keywords</td>
+                <td>39+ Keywords</td>
+                <td>25 Keywords</td>
+                <td>50+ Keywords</td>
+              </tr>
+              <tr>
+                <td><strong>Standalone VM Executable Size</strong></td>
+                <td class="highlight-col"><span class="check-pill">~14 KB</span></td>
+                <td>~15 MB</td>
+                <td>Zero (AOT)</td>
+                <td>~2 MB</td>
+                <td>~60 MB</td>
+              </tr>
+              <tr>
+                <td><strong>Native SQLite Standard Shelf</strong></td>
+                <td class="highlight-col"><span class="check-pill">✓ Built-in</span></td>
+                <td>sqlite3 module</td>
+                <td>Third-party crate</td>
+                <td>Third-party driver</td>
+                <td>npm sqlite3</td>
+              </tr>
+              <tr>
+                <td><strong>Decoupled Web Model (fweb &bull; fskin &bull; flogic)</strong></td>
+                <td class="highlight-col"><span class="check-pill">✓ Native</span></td>
+                <td><span class="cross-pill">✗ None</span></td>
+                <td><span class="cross-pill">✗ None</span></td>
+                <td><span class="cross-pill">✗ None</span></td>
+                <td>HTML/CSS/JS split</td>
+              </tr>
+              <tr>
+                <td><strong>Tail-Call Optimization in C VM</strong></td>
+                <td class="highlight-col"><span class="check-pill">✓ 1-Cycle Jump</span></td>
+                <td><span class="cross-pill">✗ None</span></td>
+                <td>LLVM Pass</td>
+                <td><span class="cross-pill">✗ None</span></td>
+                <td>V8 Inlining</td>
+              </tr>
+              <tr>
+                <td><strong>Hardware 2D Raylib Shelf</strong></td>
+                <td class="highlight-col"><span class="check-pill">✓ Built-in</span></td>
+                <td>pygame (3rd party)</td>
+                <td>raylib-rs (3rd party)</td>
+                <td>raylib-go (3rd party)</td>
+                <td>Canvas / WebGL</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Spotlight & Mission -->
+    <section class="cta-banner-section">
+      <div class="container">
+        <div class="cta-box">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--brand-gradient); margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 34px; box-shadow: 0 0 25px var(--brand-orange-glow);">
+            🦊
+          </div>
+          <h2>Deploy FoxVC Anywhere.</h2>
+          <p>
+            Designed by <strong>Anay Upadhyay</strong> (Nexus Systems). FoxVC proves that a programming language can be self-contained, lightweight, and blazingly fast without compromising on expressiveness.
+          </p>
+
+          <div class="hero-cta-group" style="margin-bottom: 0;">
+            <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-hero-primary">
+              <span>Explore FoxVC on GitHub</span>
+            </a>
+            <a href="https://vercel.com/new/clone?repository-url=https://github.com/AnayUpadhyay-all/Foxvc-web" target="_blank" rel="noopener" class="btn-hero-secondary">
+              <span>▲ Deploy this Website to Vercel</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <h4>🦊 FoxVC Programming Language</h4>
+            <p>Fast, ultra-embeddable C scripting language and bytecode VM with 25 deterministic keywords.</p>
+            <p style="margin-top: 10px; color: #9CA3AF;">Created by Anay Upadhyay &bull; Nexus Systems Dev</p>
+          </div>
+
+          <div class="footer-col">
+            <h5>Ecosystem</h5>
+            <ul>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank">Core Repository</a></li>
+              <li><a href="https://anayupadhyay-all.github.io/FoxVC/" target="_blank">WASM Browser Engine</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/Foxvc-web" target="_blank">FoxVC Web Repo</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/releases" target="_blank">Releases & Binaries</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Specifications</h5>
+            <ul>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/blob/main/FOXVC_SPEC.md" target="_blank">Language Spec v2.0</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/blob/main/FOXVC_CHANGELOG.md" target="_blank">Engine Changelog</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/blob/main/GRAMMAR.md" target="_blank">Grammar Reference</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/blob/main/LICENSE" target="_blank">MIT License</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Community</h5>
+            <ul>
+              <li><a href="https://github.com/AnayUpadhyay-all" target="_blank">GitHub Profile</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/issues" target="_blank">Report Issue</a></li>
+              <li><a href="https://github.com/AnayUpadhyay-all/FoxVC/pulls" target="_blank">Contribute</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>&copy; 2026 Anay Upadhyay. Released under the open-source MIT License.</div>
+          <div>Deployed with love on Vercel &bull; Powered by FoxVC</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
