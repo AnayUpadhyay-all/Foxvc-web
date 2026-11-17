@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FoxVC — The Zero-Overlap Programming Language</title>
+  <title>FoxVC — The Zero-Overlap Programming Language & Runtime</title>
   
-  <meta name="title" content="FoxVC — The Zero-Overlap Programming Language" />
-  <meta name="description" content="FoxVC is an independent programming language with an exact 25-keyword lexicon, a compact 14 KB C bytecode VM, and built-in SQLite persistence." />
+  <meta name="title" content="FoxVC — The Zero-Overlap Programming Language & Runtime" />
+  <meta name="description" content="FoxVC is an independent programming language with an exact 25-keyword lexicon, a compact ~14 KB C bytecode VM, embedded SQLite relational persistence, and Raylib 2D hardware graphics." />
   <meta name="author" content="Anay Upadhyay" />
   <meta name="theme-color" content="#FF7A00" />
   
@@ -15,7 +15,7 @@
 </head>
 <body>
 
-  <!-- Navigation Bar -->
+  <!-- Top Navigation Bar -->
   <nav class="navbar">
     <div class="container nav-container">
       <a href="#" class="nav-brand">
@@ -25,19 +25,22 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#keywords">Keywords</a></li>
-        <li><a href="#showcase">Code</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#demo">Terminal Demo</a></li>
+        <li><a href="#keywords">25 Keywords</a></li>
+        <li><a href="#code">Syntax</a></li>
+        <li><a href="#features">Architecture</a></li>
         <li><a href="#wasm">WebAssembly</a></li>
         <li><a href="#story">Origin</a></li>
       </ul>
 
-      <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-github">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-        </svg>
-        <span>GitHub</span>
-      </a>
+      <div class="nav-actions">
+        <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-github">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>Star on GitHub</span>
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -46,7 +49,7 @@
     <div class="container">
       <div class="status-badge">
         <span class="status-dot"></span>
-        <span>Language Spec v2.0.0 &bull; Engine v0.7.0 &bull; Open Source on GitHub</span>
+        <span>Language Spec v2.0.0 &bull; Engine v0.7.0 &bull; 127/127 Tests Passing</span>
       </div>
 
       <h1 class="hero-title">
@@ -54,12 +57,12 @@
       </h1>
 
       <p class="hero-subtitle">
-        An independent language designed with exactly 25 keywords, zero keyword overlap with competitors, a ~14 KB standalone C bytecode VM, and built-in SQLite persistence.
+        An independent programming language and C runtime designed with an exact 25-keyword lexicon, zero keyword overlap with competitors, a ~14 KB standalone bytecode VM, and native SQLite persistence.
       </p>
 
       <div class="hero-actions">
         <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" rel="noopener" class="btn-primary">
-          <span>View on GitHub</span>
+          <span>Explore on GitHub</span>
         </a>
         <a href="https://anayupadhyay-all.github.io/FoxVC/" target="_blank" rel="noopener" class="btn-secondary">
           <span>Try WebAssembly Playground ↗</span>
@@ -76,80 +79,96 @@
           Copy
         </button>
       </div>
+
+      <!-- Real Terminal Demo Preview -->
+      <div class="hero-demo-wrapper" id="demo">
+        <div class="demo-titlebar">
+          <div class="window-dots">
+            <div class="dot dot-red"></div>
+            <div class="dot dot-yellow"></div>
+            <div class="dot dot-green"></div>
+          </div>
+          <div class="demo-titlebar-title">terminal &mdash; foxvc build main.fox -o app</div>
+          <div style="font-size: 11px; color: #10B981; font-weight: 600;">● Live Execution</div>
+        </div>
+        <div class="demo-media-box">
+          <img src="assets/demo.gif" alt="FoxVC Terminal Execution & Compilation Demo" />
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- The 25 Keywords Section -->
   <section class="keywords-section" id="keywords">
     <div class="container">
-      <div class="keywords-header">The Exact 25-Keyword Lexicon (No Aliases, No Synonyms)</div>
+      <div class="keywords-header">The Exact 25-Keyword Lexicon (No Aliases, No Duplicates)</div>
       <div class="keywords-cloud">
-        <span class="keyword-badge core">act</span>
-        <span class="keyword-badge core">emit</span>
-        <span class="keyword-badge">pack</span>
-        <span class="keyword-badge">mold</span>
-        <span class="keyword-badge">pick</span>
-        <span class="keyword-badge">alt</span>
-        <span class="keyword-badge">otherwise</span>
-        <span class="keyword-badge">pulse</span>
-        <span class="keyword-badge">cycle</span>
-        <span class="keyword-badge">spin</span>
-        <span class="keyword-badge">halt</span>
-        <span class="keyword-badge">skip</span>
-        <span class="keyword-badge">say</span>
-        <span class="keyword-badge">ask</span>
-        <span class="keyword-badge">guard</span>
-        <span class="keyword-badge">trap</span>
-        <span class="keyword-badge">fuse</span>
-        <span class="keyword-badge">lock</span>
-        <span class="keyword-badge">shift</span>
-        <span class="keyword-badge">blank</span>
-        <span class="keyword-badge core">aye</span>
-        <span class="keyword-badge core">nay</span>
-        <span class="keyword-badge">also</span>
-        <span class="keyword-badge">either</span>
-        <span class="keyword-badge">deny</span>
+        <span class="keyword-badge core" title="Function declaration">act</span>
+        <span class="keyword-badge core" title="Value return / module export">emit</span>
+        <span class="keyword-badge" title="Schema dictionary / data pack">pack</span>
+        <span class="keyword-badge" title="Type blueprint schema">mold</span>
+        <span class="keyword-badge" title="Pattern match / if branch">pick</span>
+        <span class="keyword-badge" title="Alternative condition / else-if">alt</span>
+        <span class="keyword-badge" title="Fallback branch / else">otherwise</span>
+        <span class="keyword-badge" title="Continuous delta-time loop for games">pulse</span>
+        <span class="keyword-badge" title="Counted range loop">cycle</span>
+        <span class="keyword-badge" title="While loop">spin</span>
+        <span class="keyword-badge" title="Break loop">halt</span>
+        <span class="keyword-badge" title="Continue loop">skip</span>
+        <span class="keyword-badge" title="Standard output print">say</span>
+        <span class="keyword-badge" title="Standard input prompt">ask</span>
+        <span class="keyword-badge" title="Assertion with early exit">guard</span>
+        <span class="keyword-badge" title="Exception catching block">trap</span>
+        <span class="keyword-badge" title="Module import with namespace isolation">fuse</span>
+        <span class="keyword-badge" title="Immutable constant variable">lock</span>
+        <span class="keyword-badge" title="Mutable variable binding">shift</span>
+        <span class="keyword-badge" title="Null / none literal">blank</span>
+        <span class="keyword-badge core" title="Boolean true">aye</span>
+        <span class="keyword-badge core" title="Boolean false">nay</span>
+        <span class="keyword-badge" title="Logical AND with short-circuit">also</span>
+        <span class="keyword-badge" title="Logical OR with short-circuit">either</span>
+        <span class="keyword-badge" title="Unary logical NOT">deny</span>
       </div>
     </div>
   </section>
 
-  <!-- Code Showcase Section -->
-  <section class="section" id="showcase">
+  <!-- Interactive Syntax Showcase -->
+  <section class="section" id="code">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Syntax Overview</span>
-        <h2 class="section-title">Clean, Readable, Deterministic</h2>
-        <p class="section-desc">Inspect real FoxVC code samples across core features, embedded persistence, graphics, and the web model.</p>
+        <span class="section-tag">Syntax & Features</span>
+        <h2 class="section-title">See Real FoxVC Code in Action</h2>
+        <p class="section-desc">Syntax-highlighted code samples demonstrating core language constructs, SQLite persistence, and Raylib graphics.</p>
       </div>
 
       <div class="showcase-window">
         <div class="showcase-header">
           <div class="tabs-group">
-            <button class="tab-btn active" data-tab="fibonacci">fib.fox</button>
-            <button class="tab-btn" data-tab="database">sqlite.fox</button>
-            <button class="tab-btn" data-tab="graphics">graphics.fox</button>
-            <button class="tab-btn" data-tab="web_demo">web_model.fox</button>
+            <button class="tab-btn active" data-tab="fibonacci">fib.fox (Tail-Call)</button>
+            <button class="tab-btn" data-tab="database">sqlite.fox (Persistence)</button>
+            <button class="tab-btn" data-tab="graphics">graphics.fox (Raylib 2D)</button>
+            <button class="tab-btn" data-tab="web_demo">web_deck.fox (Web Model)</button>
           </div>
-          <span style="font-size: 12px; color: #64748B;">Target: FoxCVM (C Bytecode Engine)</span>
+          <span style="font-size: 12px; color: #64748B;">Target: FoxCVM Standalone</span>
         </div>
 
         <div class="showcase-body">
           <div class="code-pane">
-            <textarea id="codeEditor" spellcheck="false" readonly></textarea>
+            <div id="codeDisplay" class="code-display"></div>
           </div>
 
           <div class="terminal-pane">
             <div class="terminal-header">
               <span>Terminal Output</span>
-              <span style="color: #34D399;">● Standalone 14 KB VM</span>
+              <span style="color: #34D399; font-weight: 600;">● Engine Ready</span>
             </div>
-            <div id="terminalOutput" class="terminal-output">// Output will display here</div>
+            <div id="terminalOutput" class="terminal-output">// Click 'Run Sample' below to view output</div>
           </div>
         </div>
 
         <div class="showcase-footer">
           <div class="wasm-note">
-            Want to run FoxVC in your browser without installing anything? Check out the <a href="https://anayupadhyay-all.github.io/FoxVC/" target="_blank">official WebAssembly build on GitHub Pages ↗</a>.
+            Prefer running in-browser? Launch the <a href="https://anayupadhyay-all.github.io/FoxVC/" target="_blank">official WebAssembly engine on GitHub Pages ↗</a>.
           </div>
           <button id="btnRun" class="btn-run">Run Sample</button>
         </div>
@@ -157,127 +176,128 @@
     </div>
   </section>
 
-  <!-- What Makes FoxVC Different (Features) -->
-  <section class="section" id="features" style="background: #0A0E17;">
+  <!-- Core Features Grid -->
+  <section class="section" id="features" style="background: #090D15;">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Core Architecture</span>
-        <h2 class="section-title">What Makes FoxVC Different</h2>
-        <p class="section-desc">Built from first principles to be small, self-contained, and predictable.</p>
+        <span class="section-tag">Architecture</span>
+        <h2 class="section-title">Engineered Without External Bloat</h2>
+        <p class="section-desc">Designed from first principles to be small, self-contained, and predictable.</p>
       </div>
 
       <div class="cards-grid">
         <div class="card">
-          <div class="card-icon">📏</div>
+          <div class="card-icon-box">📏</div>
           <h3>Exact 25-Keyword Lexicon</h3>
-          <p>No unexpected aliases or duplicate keywords. Strict boolean values (<code>aye</code>, <code>nay</code>, <code>blank</code>) and logical operators (<code>also</code>, <code>either</code>, <code>deny</code>) keep code predictable across machines.</p>
+          <p>No competing synonym aliases or ambiguous grammar branches. Strict boolean values (<code>aye</code>, <code>nay</code>, <code>blank</code>) and logical operators (<code>also</code>, <code>either</code>, <code>deny</code>) keep code predictable.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">🗄️</div>
-          <h3>Native SQLite Persistence</h3>
-          <p>Embedded relational database functionality is built into the standard library shelf. Open connections, run parameterized queries, and persist structured data without installing external packages.</p>
+          <div class="card-icon-box">🗄️</div>
+          <h3>Native Embedded SQLite</h3>
+          <p>Embedded relational database functionality is built directly into the standard runtime shelf. Open connections, run parameterized queries, and persist data without installing external packages.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">⚡</div>
+          <div class="card-icon-box">⚡</div>
           <h3>~14 KB Standalone C VM</h3>
-          <p>The core virtual machine (<code>engine/foxvm.c</code>) compiles into a compact binary linking only libc and libm. Includes a tiered memory arena allocator and tail-call optimization.</p>
+          <p>The core virtual machine (<code>engine/foxvm.c</code>) compiles into a compact standalone binary linking only libc and libm. Includes a tiered memory arena allocator and tail-call optimization.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">🎮</div>
-          <h3>Built-in Raylib 2D Graphics</h3>
-          <p>Hardware-accelerated 2D windowing, shape drawing, and keyboard/mouse input bindings are part of the standard graphics shelf, enabling rapid prototyping of visual tools and games.</p>
+          <div class="card-icon-box">🎮</div>
+          <h3>Raylib 2D Hardware Graphics</h3>
+          <p>Hardware-accelerated windowing, sprite rendering, geometry drawing, and keyboard/mouse input bindings are built right into the standard graphics shelf.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">🌐</div>
-          <h3>Decoupled Web Model</h3>
+          <div class="card-icon-box">🌐</div>
+          <h3>Decoupled Web Architecture</h3>
           <p>FoxVC explores a decoupled three-layer web concept: semantic structure in <code>.fweb</code>, visual appearance rules in <code>.fskin</code>, and reactive client behavior in <code>.flogic</code>.</p>
         </div>
 
         <div class="card">
-          <div class="card-icon">📱</div>
-          <h3>Mobile & Offline Friendly</h3>
+          <div class="card-icon-box">📱</div>
+          <h3>Cross-Platform & Offline</h3>
           <p>Runs offline on Linux, macOS, Windows, and directly on Android via Termux with native ARM64 compilation support and a touch-friendly local studio.</p>
         </div>
       </div>
 
-      <!-- Honest Facts Deck -->
+      <!-- Verified Facts Deck -->
       <div class="facts-deck">
-        <h3>Real Technical Specs (Verified in Repository)</h3>
+        <h3>Verified Repository Benchmarks</h3>
         <div class="facts-list">
           <div class="fact-item">
             <div class="fact-title">Tests Passing</div>
-            <div class="fact-desc">127 / 127 automated regression and differential tests passing in CI.</div>
+            <div class="fact-desc">127 / 127 automated regression and differential tests passing in GitHub Actions CI.</div>
           </div>
           <div class="fact-item">
             <div class="fact-title">Memory Arena</div>
-            <div class="fact-desc">8MB pre-warmed standby linear arena, expandable up to 64MB ceiling.</div>
+            <div class="fact-desc">8MB pre-warmed standby linear arena, expandable dynamically to 64MB ceiling.</div>
           </div>
           <div class="fact-item">
             <div class="fact-title">C Standards</div>
-            <div class="fact-desc">Compiles cleanly with GCC and Clang using standard C89 / C99 compliance.</div>
+            <div class="fact-desc">Compiles cleanly with standard GCC and Clang using C89 / C99 compliance.</div>
           </div>
           <div class="fact-item">
-            <div class="fact-title">License</div>
-            <div class="fact-desc">100% Free and Open Source under the permissive MIT License.</div>
+            <div class="fact-title">Open Source</div>
+            <div class="fact-desc">100% Free and Open Source under the permissive MIT License on GitHub.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- WebAssembly Reference Section -->
+  <!-- Official WebAssembly Section -->
   <section class="section" id="wasm">
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Browser Runtime</span>
-        <h2 class="section-title">WebAssembly In-Browser Playground</h2>
+        <h2 class="section-title">Official WebAssembly Playground</h2>
         <p class="section-desc">You do not need to install anything on your machine to test FoxVC.</p>
       </div>
 
-      <div style="background: #121824; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 32px; text-align: center; max-width: 800px; margin: 0 auto;">
-        <p style="color: #CBD5E1; font-size: 15px; margin-bottom: 20px; line-height: 1.6;">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 40px; text-align: center; max-width: 820px; margin: 0 auto; box-shadow: var(--shadow-card);">
+        <div style="font-size: 36px; margin-bottom: 16px;">🌐</div>
+        <p style="color: #CBD5E1; font-size: 16px; margin-bottom: 24px; line-height: 1.7;">
           FoxVC has an official WebAssembly compilation build hosted directly on <strong>GitHub Pages</strong>. It executes client-side in your browser via Emscripten and Pyodide, with zero server overhead.
         </p>
 
         <a href="https://anayupadhyay-all.github.io/FoxVC/" target="_blank" rel="noopener" class="btn-primary" style="display: inline-flex;">
-          <span>Open Live WASM Playground on GitHub Pages ↗</span>
+          <span>Open Live WebAssembly Playground on GitHub Pages ↗</span>
         </a>
 
-        <div style="margin-top: 16px; font-size: 13px; color: var(--text-subtle);">
-          Source code is open: <a href="https://github.com/AnayUpadhyay-all/FoxVC/tree/main/studio" target="_blank" style="color: #94A3B8;">studio/web_engine.py</a> in the core repository.
+        <div style="margin-top: 20px; font-size: 13px; color: var(--text-subtle);">
+          Source code is open: <a href="https://github.com/AnayUpadhyay-all/FoxVC/tree/main/studio" target="_blank" style="color: #94A3B8;">studio/web_engine.py</a> in the main FoxVC repository.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Origin & Story Section -->
-  <section class="section" id="story" style="background: #0A0E17;">
+  <!-- Origin Story Section -->
+  <section class="section" id="story" style="background: #090D15;">
     <div class="container">
       <div class="story-box">
-        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-          <span style="font-size: 28px;">🦊</span>
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 20px;">
+          <span style="font-size: 32px;">🦊</span>
           <h2>Why I Created FoxVC</h2>
         </div>
 
         <p>
-          I started FoxVC on September 2, 2026 as an offline engineering experiment. I wanted a language where every keyword has a singular meaning, with zero syntax collision with mainstream languages, and a small runtime that can compile into a single standalone binary.
+          I started FoxVC on September 2, 2026 as an offline engineering project. I wanted a language where every keyword has a singular meaning, with zero syntax collision with mainstream languages, and a small runtime that can compile into a single standalone binary.
         </p>
 
         <p>
-          Most modern languages come with 40+ keywords, complex runtime runaways, and heavy package dependencies just to do basic local SQLite operations or open a 2D window. FoxVC keeps things compact: 25 keywords, built-in SQLite persistence, Raylib graphics, and a fast 14 KB C virtual machine.
+          Most modern languages come with 40+ keywords, runtime bloat, and heavy package dependencies just to do basic local SQLite operations or open a 2D window. FoxVC keeps things compact: 25 keywords, built-in SQLite persistence, Raylib graphics, and a fast 14 KB C virtual machine.
         </p>
 
         <p>
           On October 10, 2026, FoxVC was open-sourced on GitHub under the MIT License. Today it continues to grow as an independent project with automated testing, LSP support, and multi-platform compilation.
         </p>
 
-        <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--text-subtle); flex-wrap: wrap; gap: 10px;">
+        <div style="margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; font-size: 13.5px; color: var(--text-subtle); flex-wrap: wrap; gap: 10px;">
           <span><strong>Anay Upadhyay</strong> &bull; Founder of FoxVC</span>
-          <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" style="color: var(--brand-orange); text-decoration: none;">Explore the source code on GitHub →</a>
+          <a href="https://github.com/AnayUpadhyay-all/FoxVC" target="_blank" style="color: var(--brand-orange); text-decoration: none; font-weight: 500;">Explore the source code on GitHub →</a>
         </div>
       </div>
     </div>
